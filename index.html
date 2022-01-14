@@ -4,33 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link rel="stylesheet" href="css/main.css">
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Todo app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <title>Todo app</title>
 </head>
 <body>
 
-  Todo
+<div class="background dark">
+  <div class="container">
 
-  <!-- Add dynamic number --> items left
+    <header class="header">
+      <h1 class="header_text">Todo</h1>
+      <div class="header_theme">
+        <img class="current_theme" src="images/icon-moon.svg" alt="dark-theme">
+        <img src="images/icon-sun.svg" alt="light-theme">
+      </div> 
+      <!-- lets toggle class on click and change icon in js depending on class or boolean-->
+    </header>
 
-  All
-  Active 
-  Completed
+    <div class="new">
+      <div class="new_ready"><img src="images/icon-check.svg" alt="ready"></div>
+      <input class="new_task" type="text" id="new_task" name="new_task" placeholder="Create a new todo">
+    </div>
 
-  Clear Completed
+    <ul class="list">
+      <li class="list_task completed">
+        <div class="list_task_check"><img src="images/icon-check.svg" alt="complete"></div>
+        <p class="list_task_content">Jog around the park 3x</p>
+        <div class="list_task_delete"><img src="images/icon-cross.svg" alt="delete"></div>
+      </li>
+      <li class="list_task active">
+        <div class="list_task_check"><img src="images/icon-check.svg" alt="complete"></div>
+        <p class="list_task_content">Jog around the park 3x</p>
+        <div class="list_task_delete"><img src="images/icon-cross.svg" alt="delete"></div>
+      </li>
+      <li class="list_task active">
+        <div class="list_task_check"><img src="images/icon-check.svg" alt="complete"></div>
+        <p class="list_task_content">Jog around the park 3x</p>
+        <div class="list_task_delete"><img src="images/icon-cross.svg" alt="delete"></div>
+      </li>
+      <li class="list_task active">
+        <div class="list_task_check"><img src="images/icon-check.svg" alt="complete"></div>
+        <p class="list_task_content">Jog around the park 3x</p>
+        <div class="list_task_delete"><img src="images/icon-cross.svg" alt="delete"></div>
+      </li>
+      <li class="list_bar">
+        <p class="list_bar_info"><span><!-- Add dynamic number -->0</span>&nbspitems left</p>
+        <p class="list_bar_clear">Clear Completed</p>
+      </li>
+    </ul>
 
-  Drag and drop to reorder list
+    <div class="filter">
+      <div id="filter_all" class="filter_option current_option">All</div>
+      <div id="filter_active" class="filter_option">Active</div>
+      <div id="filter_completed" class="filter_option">Completed</div>
+    </div>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    <p class="instruction">Drag and drop to reorder list</p>
+
   </div>
+</div>
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by Weronika Płatek.
+</div>
 </body>
 </html>

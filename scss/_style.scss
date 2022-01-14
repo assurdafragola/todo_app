@@ -1,0 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+$font-size: 12px;
+$font-family: 'Josefin Sans', sans-serif;
+$font-light: 400;
+$font-bold: 700;
+
+$light-background: hsl(0, 0%, 98%);
+$light-completed-task: hsl(236, 33%, 92%); //Very Light Grayish Blue:
+$light-instruction: hsl(233, 11%, 84%); //Light Grayish Blue:
+$light-filter: hsl(236, 9%, 61%); //Dark Grayish Blue: 
+$light-active-task: hsl(235, 19%, 35%); // Very Dark Grayish Blue
+$light-task: hsl(0, 0%, 100%);
+$light-hover: hsl(235, 24%, 19%);
+
+$dark-background: hsl(235, 21%, 11%);
+$dark-completed-task: hsl(237, 14%, 26%); //Very Light Grayish Blue:
+$dark-instruction: hsl(234, 11%, 52%); //Light Grayish Blue:
+$dark-filter: hsl(233, 14%, 35%); //Dark Grayish Blue: 
+$dark-active-task: hsl(234, 39%, 85%); // Very Dark Grayish Blue
+$dark-task: hsl(235, 24%, 19%);
+$dark-hover: hsl(236, 33%, 92%); //(hover)

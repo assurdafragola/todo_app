@@ -1,0 +1,352 @@
+@import 'reset';
+@import 'style';
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-light;
+    .attribution {
+        position: fixed;
+        writing-mode: vertical-rl;
+        text-orientation: sideways;
+        bottom: 10px;
+        right: 5px;
+        font-size: 0.7em;
+        color: $light-active-task;
+    }
+}
+
+.background {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    max-width: 600px;
+    padding: 10px;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    .header_text {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        font-weight: $font-bold;
+        letter-spacing: 10px;
+        padding-top: 5px;
+        color: white;
+    }
+    .header_theme {
+        .current_theme {
+            display: none;
+        }
+        width: 20px;
+        &:hover {
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.new {
+    width: 97%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+    .new_ready {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            visibility: hidden;
+        }
+        &:hover {
+            cursor: pointer;
+            img {
+                visibility: visible;
+            }
+        }
+    }
+    .new_task {
+        border: none;
+        width: calc(100% - 40px);
+        font-family: $font-family;
+        font-size: $font-size;
+        padding: 5px 3px;
+    }
+}
+
+.list {
+    width: 97%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 15px;
+    .list_task {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        .list_task_check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .list_task_content {
+            padding-left: 3px;
+            width: calc(100% - 60px);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .list_task_delete {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10px;
+            height: 10px;
+            margin-left: 5px;
+            &:hover {
+                cursor: pointer;
+            }
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+
+    .list_task.active {
+        .list_task_check {
+            img {
+                visibility: hidden;
+            }
+            &:hover {
+                background-image:linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+                cursor: pointer;
+                img {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .list_task.completed {
+        .list_task_content {
+            text-decoration: line-through;
+        }
+        .list_task_check {
+            background-image:linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            img {
+                visibility: visible;
+            }
+            &:hover {
+                cursor: pointer;
+                img {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+    .list_bar {
+        width: 100%;;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        font-size: 0.75rem;
+        font-weight: $font-bold;
+        .list_bar_clear:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.filter {
+    width: 97%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    height: 50px;
+    .filter_option {
+        padding: 15px;
+        font-weight: $font-bold;
+        font-size: 1.1em;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .current_option {
+        color: hsl(220, 98%, 61%);
+    }
+}
+
+.instruction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    font-size: 1.1em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: $font-bold;
+}
+
+//themes 
+
+.background.light {
+    background-image: url(../images/bg-mobile-light.jpg);
+    background-color: $light-background;
+    @media (min-width: 600px) {
+        background-image: url(../images/bg-desktop-light.jpg);
+    }
+    .new {
+        background-color: $light-task;
+        .new_ready {
+            border: 1px solid $light-completed-task;
+            &:hover {
+                background-color: $light-active-task;
+            }
+        }
+        .new_task {
+            color: $light-active-task;
+        }
+    }
+    .list {
+        background-color: $light-task;
+        .list_task.completed {
+            border-bottom: 2px solid $light-background;
+            .list_task_content{
+                color: $light-completed-task;
+            }
+            .list_task_check {
+                border: 1px solid $light-completed-task;
+            }
+        }
+        .list_task.active {
+            border-bottom: 2px solid $light-background;
+            .list_task_content{
+                color: $light-active-task;
+            }
+            .list_task_check {
+                border: 1px solid $light-completed-task;
+            }
+        }
+        .list_bar {
+            color: $light-instruction;
+            .list_bar_clear:hover {
+                color: $light-hover;
+            }
+        }
+    }
+    .filter {
+        color: $light-filter;
+        background-color: $light-task;
+        .filter_option:hover {
+            color: $light-hover;
+        }
+    }
+    .instruction {
+        color: $light-instruction;
+    }
+}
+
+.background.dark {
+    background-image: url(../images/bg-mobile-dark.jpg);
+    background-color: $dark-background;
+    @media (min-width: 600px) {
+        background-image: url(../images/bg-desktop-dark.jpg);
+    }
+    .new {
+        background-color: $dark-task;
+        .new_ready {
+            border: 1px solid $dark-completed-task;
+        }
+        .new_task {
+            color: $dark-active-task;
+            background-color: $dark-task;
+        }
+    }
+    .list {
+        background-color: $dark-task;
+        .list_task.completed {
+            border-bottom: 2px solid $dark-background;
+            .list_task_content{
+                color: $dark-completed-task;
+            }
+            .list_task_check {
+                border: 1px solid $dark-completed-task;
+            }
+        }
+        .list_task.active {
+            border-bottom: 2px solid $dark-background;
+            .list_task_content{
+                color: $dark-active-task;
+            }
+            .list_task_check {
+                border: 1px solid $dark-completed-task;
+            }
+        }
+        .list_bar {
+            color: $dark-instruction;
+            .list_bar_clear:hover {
+                color: $dark-hover;
+            }
+        }
+    }
+    .filter {
+        color: $dark-filter;
+        background-color: $dark-task;
+        .filter_option:hover {
+            color: $dark-hover;
+        }
+    }
+    .instruction {
+        color: $dark-instruction;
+    }
+}

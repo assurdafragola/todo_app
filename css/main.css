@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+body .attribution {
+  position: fixed;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  bottom: 10px;
+  right: 5px;
+  font-size: 0.7em;
+  color: #484b6a;
+}
+
+.background {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.header .header_text {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 10px;
+  padding-top: 5px;
+  color: white;
+}
+.header .header_theme {
+  width: 20px;
+}
+.header .header_theme .current_theme {
+  display: none;
+}
+.header .header_theme:hover {
+  cursor: pointer;
+}
+.header .header_theme img {
+  max-width: 100%;
+  height: auto;
+}
+
+.new {
+  width: 97%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+.new .new_ready {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.new .new_ready img {
+  visibility: hidden;
+}
+.new .new_ready:hover {
+  cursor: pointer;
+}
+.new .new_ready:hover img {
+  visibility: visible;
+}
+.new .new_task {
+  border: none;
+  width: calc(100% - 40px);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 12px;
+  padding: 5px 3px;
+}
+
+.list {
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 15px;
+}
+.list .list_task {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.list .list_task .list_task_check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list .list_task .list_task_content {
+  padding-left: 3px;
+  width: calc(100% - 60px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.list .list_task .list_task_content:hover {
+  cursor: pointer;
+}
+.list .list_task .list_task_delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+}
+.list .list_task .list_task_delete:hover {
+  cursor: pointer;
+}
+.list .list_task .list_task_delete img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.list .list_task.active .list_task_check img {
+  visibility: hidden;
+}
+.list .list_task.active .list_task_check:hover {
+  background-image: linear-gradient(#57ddff, #c058f3);
+  cursor: pointer;
+}
+.list .list_task.active .list_task_check:hover img {
+  visibility: visible;
+}
+.list .list_task.completed .list_task_content {
+  text-decoration: line-through;
+}
+.list .list_task.completed .list_task_check {
+  background-image: linear-gradient(#57ddff, #c058f3);
+}
+.list .list_task.completed .list_task_check img {
+  visibility: visible;
+}
+.list .list_task.completed .list_task_check:hover {
+  cursor: pointer;
+}
+.list .list_task.completed .list_task_check:hover img {
+  visibility: hidden;
+}
+.list .list_bar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.list .list_bar .list_bar_clear:hover {
+  cursor: pointer;
+}
+
+.filter {
+  width: 97%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  height: 50px;
+}
+.filter .filter_option {
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.filter .filter_option:hover {
+  cursor: pointer;
+}
+.filter .current_option {
+  color: #3a7bfd;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  font-size: 1.1em;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.background.light {
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-color: #fafafa;
+}
+@media (min-width: 600px) {
+  .background.light {
+    background-image: url(../images/bg-desktop-light.jpg);
+  }
+}
+.background.light .new {
+  background-color: white;
+}
+.background.light .new .new_ready {
+  border: 1px solid #e4e5f1;
+}
+.background.light .new .new_ready:hover {
+  background-color: #484b6a;
+}
+.background.light .new .new_task {
+  color: #484b6a;
+}
+.background.light .list {
+  background-color: white;
+}
+.background.light .list .list_task.completed {
+  border-bottom: 2px solid #fafafa;
+}
+.background.light .list .list_task.completed .list_task_content {
+  color: #e4e5f1;
+}
+.background.light .list .list_task.completed .list_task_check {
+  border: 1px solid #e4e5f1;
+}
+.background.light .list .list_task.active {
+  border-bottom: 2px solid #fafafa;
+}
+.background.light .list .list_task.active .list_task_content {
+  color: #484b6a;
+}
+.background.light .list .list_task.active .list_task_check {
+  border: 1px solid #e4e5f1;
+}
+.background.light .list .list_bar {
+  color: #d2d3db;
+}
+.background.light .list .list_bar .list_bar_clear:hover {
+  color: #25273c;
+}
+.background.light .filter {
+  color: #9394a5;
+  background-color: white;
+}
+.background.light .filter .filter_option:hover {
+  color: #25273c;
+}
+.background.light .instruction {
+  color: #d2d3db;
+}
+
+.background.dark {
+  background-image: url(../images/bg-mobile-dark.jpg);
+  background-color: #161722;
+}
+@media (min-width: 600px) {
+  .background.dark {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
+}
+.background.dark .new {
+  background-color: #25273c;
+}
+.background.dark .new .new_ready {
+  border: 1px solid #393a4c;
+}
+.background.dark .new .new_task {
+  color: #cacde8;
+  background-color: #25273c;
+}
+.background.dark .list {
+  background-color: #25273c;
+}
+.background.dark .list .list_task.completed {
+  border-bottom: 2px solid #161722;
+}
+.background.dark .list .list_task.completed .list_task_content {
+  color: #393a4c;
+}
+.background.dark .list .list_task.completed .list_task_check {
+  border: 1px solid #393a4c;
+}
+.background.dark .list .list_task.active {
+  border-bottom: 2px solid #161722;
+}
+.background.dark .list .list_task.active .list_task_content {
+  color: #cacde8;
+}
+.background.dark .list .list_task.active .list_task_check {
+  border: 1px solid #393a4c;
+}
+.background.dark .list .list_bar {
+  color: #777a92;
+}
+.background.dark .list .list_bar .list_bar_clear:hover {
+  color: #e4e5f1;
+}
+.background.dark .filter {
+  color: #4d5066;
+  background-color: #25273c;
+}
+.background.dark .filter .filter_option:hover {
+  color: #e4e5f1;
+}
+.background.dark .instruction {
+  color: #777a92;
+}
+
+/*# sourceMappingURL=main.css.map */
