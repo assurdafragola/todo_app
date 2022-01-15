@@ -171,6 +171,7 @@ body .attribution {
   height: 20px;
   border-radius: 50%;
   margin: 0 10px;
+  padding: 4px 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,19 +197,18 @@ body .attribution {
 .list .list_task .list_task_delete:hover {
   cursor: pointer;
 }
-.list .list_task .list_task_delete img {
-  max-width: 100%;
-  max-height: 100%;
+.list .task_pattern {
+  display: none;
 }
-.list .list_task.active .list_task_check img {
-  visibility: hidden;
+.list .hidden {
+  display: none;
+}
+.list .list_task.active .list_task_check {
+  background-color: white;
 }
 .list .list_task.active .list_task_check:hover {
   background-image: linear-gradient(#57ddff, #c058f3);
   cursor: pointer;
-}
-.list .list_task.active .list_task_check:hover img {
-  visibility: visible;
 }
 .list .list_task.completed .list_task_content {
   text-decoration: line-through;
@@ -216,14 +216,8 @@ body .attribution {
 .list .list_task.completed .list_task_check {
   background-image: linear-gradient(#57ddff, #c058f3);
 }
-.list .list_task.completed .list_task_check img {
-  visibility: visible;
-}
 .list .list_task.completed .list_task_check:hover {
   cursor: pointer;
-}
-.list .list_task.completed .list_task_check:hover img {
-  visibility: hidden;
 }
 .list .list_bar {
   width: 100%;
