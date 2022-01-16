@@ -166,6 +166,9 @@ body .attribution {
   align-items: center;
   padding: 10px;
 }
+.list .list_task:hover {
+  cursor: move;
+}
 .list .list_task .list_task_check {
   width: 20px;
   height: 20px;
@@ -176,15 +179,15 @@ body .attribution {
   justify-content: center;
   align-items: center;
 }
+.list .list_task .list_task_check:hover {
+  cursor: pointer;
+}
 .list .list_task .list_task_content {
   padding-left: 3px;
   width: calc(100% - 60px);
   height: 100%;
   display: flex;
   align-items: center;
-}
-.list .list_task .list_task_content:hover {
-  cursor: pointer;
 }
 .list .list_task .list_task_delete {
   display: flex;
@@ -382,6 +385,16 @@ body .attribution {
 }
 .background.dark .instruction {
   color: #777a92;
+}
+
+.background.light .list .list_task.dragging {
+  background-color: #25273c;
+  opacity: 0.7;
+}
+
+.background.dark .list .list_task.dragging {
+  background-color: white;
+  opacity: 0.7;
 }
 
 /*# sourceMappingURL=main.css.map */

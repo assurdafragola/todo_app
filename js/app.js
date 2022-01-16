@@ -151,5 +151,48 @@ document.addEventListener('DOMContentLoaded', function() {
     elThemeBtn.addEventListener('click', toggleTheme);
 
     //Drag and drop to reorder list
+
+    function toggleDragging (e) {
+        if (e.target.classList.contains('list_task')) {
+            e.target.classList.toggle('dragging')
+        } else {
+            return false
+        }
+    }
+
+    elTaskList.addEventListener('dragstart', toggleDragging)
+
+    elTaskList.addEventListener('dragend', toggleDragging)
+
+    function determinNextElement (container, y) {
+        var draggableElements = [...container.querySelectorAll('.list_task:not(.dragging)')]
+        
+        var nextElement = draggableElements.reduce(function(closest, child) {
+            var childProperties = child.getBoundingClientRect();
+            var offset = y - childProperties.top - childProperties.height;
+            if (offset<0 && offset>closest.offset) {
+                return {offset: offset, element: child}
+            } else {
+                return closest
+            }
+        }, {offset:Number.NEGATIVE_INFINITY})
+
+        return nextElement.element
+    }
+
+    function changeElementPosition (e) {
+        e.preventDefault();
+        var nextElement = determinNextElement(elTaskList, e.clientY)
+        var draggedElement = elTaskList.querySelector('.dragging')
+        if (nextElement == null) {
+            elTaskList.insertBefore(draggedElement, elTaskList.querySelector('.task_pattern') )
+        } else {
+            elTaskList.insertBefore(draggedElement, nextElement)
+        }
+    }
+
+    elTaskList.addEventListener('dragover',changeElementPosition)
+
+
     
 })

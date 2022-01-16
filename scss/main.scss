@@ -119,6 +119,9 @@ body {
         justify-content: center;
         align-items: center;
         padding: 10px;
+        &:hover {
+            cursor: move;
+        }
         .list_task_check {
             width: 20px;
             height: 20px;
@@ -127,7 +130,10 @@ body {
             padding: 4px 3px;
             display: flex;
             justify-content: center;
-            align-items: center;    
+            align-items: center;  
+            &:hover {
+                cursor: pointer;
+            }  
         }
         .list_task_content {
             padding-left: 3px;
@@ -135,9 +141,7 @@ body {
             height: 100%;
             display: flex;
             align-items: center;
-            &:hover {
-                cursor: pointer;
-            }
+
         }
         .list_task_delete {
             display: flex;
@@ -344,5 +348,32 @@ body {
     }
     .instruction {
         color: $dark-instruction;
+    }
+}
+
+//dragging
+
+
+.background.light{
+    .list {
+        .list_task.dragging {
+            background-color: $dark-task;
+            opacity: 0.7;
+        }
+    }
+}
+
+.background.dark {
+    .list {
+        .list_task.dragging {
+            background-color: $light-task;
+            opacity: 0.7;
+        }
+    }
+}
+
+.list {
+    .list_task.dragging {
+
     }
 }
