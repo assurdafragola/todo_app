@@ -6,14 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var elTaskList = document.querySelector('.list');
     var elActiveTasks;
-    var elCompletedTasks = document.querySelectorAll('.list_task.completed')
-    var elAllTasks = document.querySelectorAll('.list_task')
+    var elCompletedTasks;
+    var elAllTasks;
 
     var taskCounter = 0;
     var elCounter = document.querySelector('.list_bar_info')
 
     function updateCounter() {
-        console.log('upadated')
         elActiveTasks = document.querySelectorAll('.list_task.active')
         taskCounter = elActiveTasks.length-1
         elCounter.innerHTML = taskCounter + ' items left'
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-
     elTaskList.addEventListener('click', function(e) {
         if (e.target.classList.contains('list_task_check')) {
             toggleCompleted(e)
@@ -90,13 +88,67 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 
-
-
     //Filter All/Active/Completed
 
+    function showSelectedTasks(show, hide) {
+        for (var i = 0; i < hide.length; i++) { 
+              hide[i].classList.add('hidden')
+        }
+        for (var i=0; i < show.length; i++) {
+            show[i].classList.remove('hidden')
+        }
+    }
 
+    function showAllTasks() {
+        elAllTasks = document.querySelectorAll('.list_task')
+        for (var i = 0; i < elAllTasks.length; i++) { 
+            elAllTasks[i].classList.remove('hidden')
+        }
+    }
+
+    var elFilter = document.querySelector('.filter')
+
+    elFilter.addEventListener('click', function(e){
+        var filterOptions = e.currentTarget.children
+        for (var i = 0; i < filterOptions.length; i++ ) {
+            if (filterOptions[i].classList.contains('current_option'))  {
+                filterOptions[i].classList.remove('current_option')
+            }
+        }
+        e.target.classList.add('current_option')
+
+        if (!e.target.classList.contains('filter_option')) {
+            console.log('not a button')
+        } else if (e.target.id == 'filter_all') {
+            showAllTasks()
+        } else {
+            var hide, show;
+            elCompletedTasks = document.querySelectorAll('.list_task.completed')
+            elActiveTasks = document.querySelectorAll('.list_task.active')
+            if (e.target.id == 'filter_active') {
+                hide = elCompletedTasks;
+                show = elActiveTasks;
+            } else if (e.target.id == 'filter_completed') {
+                hide = elActiveTasks;
+                show = elCompletedTasks;
+            }
+            showSelectedTasks(show, hide)
+        }
+
+    })
 
     //Change Theme
+
+    var elThemeBtn = document.querySelector('.header_theme')
+
+    function toggleTheme(e) {
+        e.currentTarget.children[0].classList.toggle('current_theme');
+        e.currentTarget.children[1].classList.toggle('current_theme');
+        e.currentTarget.parentNode.parentNode.parentNode.classList.toggle('dark');
+        e.currentTarget.parentNode.parentNode.parentNode.classList.toggle('light')
+    }
+
+    elThemeBtn.addEventListener('click', toggleTheme);
 
     //Drag and drop to reorder list
     
